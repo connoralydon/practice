@@ -16,3 +16,4 @@ def max3p(arr):
 # this solution puts rules in place to deal with all possible cases in the sorted array. 
 # only works if the list is sorted
 
+# https://www.interviewbit.com/problems/highest-product/
