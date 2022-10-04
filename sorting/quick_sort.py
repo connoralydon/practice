@@ -32,6 +32,10 @@ def partition(l, low, high):
     
     for j in range(low, high): # iterate through elements in sub array, inclusive, exclusive
         # doesn't iterate last element because it swaps the last element there
+        
+        # can do high -> low to swap on opposite ends, but low -> high works because they move at different rates and keep swapping elements that are greater than the pivot
+        # low -> high is less intuitive because  it has two pointers at different speeds, 
+        # high -> low is intuitive because they swap and once they meet the iteration ends.
         if l[j] <= pivot: 
             # if it is less, then move it left of the pivot
             # swap it with the greater element pointed to by i
@@ -48,6 +52,30 @@ def partition(l, low, high):
     (l[i + 1], l[high]) = (l[high], l[i + 1])
     
     return i + 1 # next partition point
+    
+    
+def high_low_partition(l, low, high):
+    i = low
+    j = high
+    pivot = l[high]
+    
+    while i < j: # so they dont cross over
+        while i < high and l[i] <= pivot: # while points to the left are valid
+            i += 1
+            
+        while j > low and l[j] > pivot: # while points to the right are valid
+            j += 1
+        
+        # the two while statements will keep iterating until they find elements that are on the wrong side of the pivot, once found they swap them
+        
+        # if still validly iterating
+        if i < j:
+            l[i], l[j] = l[j], l[i]
+            
+    if l[i] > pivot:
+        l[i], l[high] = l[high], l[i]
+        
+    return i 
     
 
 def quick_sort(l, low, high):
