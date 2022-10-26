@@ -10,22 +10,22 @@ https://www.geeksforgeeks.org/decorators-in-python/
 
 """
 
-# def my_decorator(func):
-#     def inner1(): # need this interior portion to make it work
-#         print("beginning of wrapped function")
+def my_decorator(func):
+    def inner1(): # need this interior portion to make it work
+        print("beginning of wrapped function")
         
-#         func()
+        func()
         
-#         print("end of wrapped function")
+        print("end of wrapped function")
     
-#     return inner1
+    return inner1
 
-# @my_decorator 
-# def main_func():
-#     print("interior text")
+@my_decorator 
+def main_func():
+    print("interior text")
     
-# # my_decorator(main_func)
-# main_func()
+# my_decorator(main_func)
+main_func()
 
 
 # for functions they need to have an inner portion where the inner function is returned
