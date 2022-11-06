@@ -5,7 +5,7 @@ import requests
 import json
 
 
-# using "reqres.in" to test against an api endpoint
+# using "reqres.in" website to test against an api endpoint
 @pytest.fixture
 def main_url():
     return "https://reqres.in"
